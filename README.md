@@ -65,7 +65,6 @@
 2. An activation email is sent to the new address
 3. The customer is logged out and must verify the new email before logging in again
 
-![Screenshot](_ss/ss2.jpg)
 ![Screenshot](_ss/ss3.jpg)
 
 ### Backend Login with 2FA
@@ -83,10 +82,8 @@
 
 | URL | Description |
 |-----|-------------|
-| `/2fa/verify` | 2FA code entry page (standalone) |
 | `/account/activate?token=...` | Email activation link handler |
 | `/account/not-verified` | Email verification pending page |
-| `/account/magic-login` | Magic-link request page (standalone) |
 | `/account/magic-link?token=...` | Magic-link login handler |
 
 ## Database
@@ -168,7 +165,6 @@ TwoFactorAuthentication/
 │   ├── BackendExtender.php
 │   └── RegistrationExtender.php
 ├── Controllers/
-│   ├── TwoFaController.php
 │   ├── ActivateController.php
 │   ├── NotVerifiedController.php
 │   └── MagicLoginController.php
@@ -179,7 +175,6 @@ TwoFactorAuthentication/
 │   └── EmailVerifyNoticePlugin.php
 ├── design/
 │   ├── html/
-│   │   ├── tfa.tpl
 │   │   ├── tfa_login.tpl
 │   │   ├── activate_notice.tpl
 │   │   ├── not_verified.tpl
