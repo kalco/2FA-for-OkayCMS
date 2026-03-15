@@ -1,0 +1,65 @@
+{
+  "Okay": "4.5.2",
+  "version": "2.0.0",
+  "moduleName": "Two Factor Authentication",
+  "vendor": {
+    "email": "me@roka.mk",
+    "site": "https://roka.mk"
+  },
+  "modifications": {
+    "backend": [
+      {
+        "file": "manager.tpl",
+        "changes": [
+          {
+            "find": "<button type=\"submit\" class=\"btn btn_small btn_blue\" name=\"reset_menu\" value=\"1\">",
+            "appendBefore": "manager_block.tpl"
+          }
+        ]
+      },
+      {
+        "file": "user.tpl",
+        "changes": [
+          {
+            "find": "<div class=\"heading_label\">",
+            "childrenFind": "E-mail",
+            "appendAfter": "email_verify.tpl"
+          }
+        ]
+      },
+      {
+        "file": "auth.tpl",
+        "changes": [
+          {
+            "find": "<div class=\"container d-table\">",
+            "append": "tfa_auth.tpl"
+          }
+        ]
+      }
+    ],
+    "front": [
+      {
+        "file": "user.tpl",
+        "changes": [
+          {
+            "find": "{if $user_updated}",
+            "appendAfter": "{rs_tfa_email_verify_notice}"
+          },
+          {
+            "find": "<div class=\"f_col-md-12 form__group hidden-sm-down\">",
+            "appendAfter": "{rs_tfa_checkbox}"
+          }
+        ]
+      },
+      {
+        "file": "login.tpl",
+        "changes": [
+          {
+            "find": "<div class=\"form_wrap f_col-lg-6\">",
+            "append": "tfa_login.tpl"
+          }
+        ]
+      }
+    ]
+  }
+}
